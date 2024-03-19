@@ -6,6 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
+//Configuracion del locale de la app 
+import localeEsAR from '@angular/common/locales/es-AR'
+import localeFrCA from '@angular/common/locales/es-AR'
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData( localeEsAR );
+registerLocaleData( localeFrCA );
 
 @NgModule({
   declarations: [
@@ -17,7 +24,12 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID, useValue: 'es-AR'
+    },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
